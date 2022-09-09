@@ -16,6 +16,7 @@ class KnobTickPainter extends CustomPainter {
   final MinorTickStyle minorTickStyle;
   final MajorTickStyle majorTickStyle;
   final ElementsPosition labelPosition;
+  final double majorTicksInterval;
   final int minorTicksPerInterval;
   final double tickOffset;
   final double labelOffset;
@@ -37,7 +38,8 @@ class KnobTickPainter extends CustomPainter {
     this.minorTickStyle = const MinorTickStyle(),
     this.labelPosition = ElementsPosition.outside,
     this.labelStyle,
-    this.minorTicksPerInterval = 4,
+    this.majorTicksInterval = 10,
+    this.minorTicksPerInterval = 2,
     this.current = 0.0,
   }) : tickPaint = Paint() {
     tickPaint.strokeWidth = 1.5;
@@ -51,9 +53,9 @@ class KnobTickPainter extends CustomPainter {
     final radius = width / 2;
     final sweepAngle = endAngle - startAngle;
     final range = maximum - minimum;
-    final majorTickCount = sweepAngle ~/ range;
+    final majorTickCount = range ~/ majorTicksInterval;
     final majorTickAngle = sweepAngle / majorTickCount;
-    final minorTickCount = min(range / majorTickCount, minorTicksPerInterval);
+    final minorTickCount = min(majorTicksInterval, minorTicksPerInterval);
     final minorTickAngle = majorTickAngle / minorTickCount;
     final totalTickCount = sweepAngle / minorTickAngle;
     double rotationAngle = minorTickAngle * pi / 180;

@@ -58,6 +58,7 @@ class _ControlKnobContainerState extends State<ControlKnobContainer> {
                   endAngle: controller.value.endAngle,
                   tickOffset: style.tickOffset,
                   labelOffset: style.labelOffset,
+                  majorTicksInterval: style.majorTicksInterval,
                   minorTicksPerInterval: style.minorTicksPerInterval,
                   labelStyle: style.labelStyle,
                   minorTickStyle: style.minorTickStyle,

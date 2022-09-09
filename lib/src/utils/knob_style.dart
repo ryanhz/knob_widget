@@ -14,6 +14,9 @@ class KnobStyle {
   /// minor tick style
   final MinorTickStyle minorTickStyle;
 
+  /// Major tick interval
+  final double majorTicksInterval;
+
   /// number of minor ticks per interval
   final int minorTicksPerInterval;
 
@@ -37,7 +40,8 @@ class KnobStyle {
     this.tickOffset = 0,
     this.majorTickStyle = const MajorTickStyle(),
     this.minorTickStyle = const MinorTickStyle(),
-    this.minorTicksPerInterval = 4,
+    this.majorTicksInterval = 10,
+    this.minorTicksPerInterval = 2,
     this.showLabels = true,
     this.labelOffset = 0,
     this.labelStyle = const TextStyle(),
